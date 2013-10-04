@@ -1,5 +1,5 @@
-include_recipe "pivotal_workstation::rvm"
 #include_recipe "pivotal_workstation::postgres"
+include_recipe "tm-osx-apps::postgres_app"
 include_recipe "pivotal_workstation::redis"
 include_recipe "pivotal_workstation::memcached"
 include_recipe "sprout-osx-apps::imagemagick"

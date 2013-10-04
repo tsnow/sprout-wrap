@@ -24,6 +24,20 @@ Prepares a Mac running OS X Mountain Lion for Ruby development using [soloist](h
     sudo gem install bundler
     bundle
 
+### 4.001. (Optional) Switch to rvm, if you know what's good for you
+
+``` yaml
+## In ./soloistrc
+recipes:
+- tm::osx_base
+- tm::osx_development
+#- pivotal_workstation::rbenv
+- pivotal_workstation::rvm
+- tm::ruby_development
+node_attributes:
+  mysql_root_password: ""
+```
+
 ### 5. Run soloist
   
     bundle exec soloist

@@ -1,6 +1,8 @@
 recipes:
 - tm::osx_base
 - tm::osx_development
+- pivotal_workstation::rbenv
+#- pivotal_workstation::rvm
 - tm::ruby_development
 node_attributes:
 #  See tsnow::dev_projects, run soloist with GITHUB_USER=x GITHUB_PASS=y
