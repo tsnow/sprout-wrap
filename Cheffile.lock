@@ -72,6 +72,30 @@ PATH
       sprout-osx-apps (>= 0.0.0)
       sprout-osx-settings (>= 0.0.0)
 
+PATH
+  remote: site-cookbooks/tm
+  specs:
+    tm (0.1.0)
+      pivotal_workstation (>= 0.0.0)
+      sprout-osx-apps (>= 0.0.0)
+      sprout-osx-settings (>= 0.0.0)
+
+PATH
+  remote: site-cookbooks/tm-osx-apps
+  specs:
+    tm-osx-apps (0.1.0)
+      pivotal_workstation (>= 0.0.0)
+      sprout-osx-apps (>= 0.0.0)
+      sprout-osx-settings (>= 0.0.0)
+
+PATH
+  remote: site-cookbooks/tsnow
+  specs:
+    tsnow (0.1.0)
+      pivotal_workstation (>= 0.0.0)
+      sprout-osx-apps (>= 0.0.0)
+      sprout-osx-settings (>= 0.0.0)
+
 DEPENDENCIES
   meta (>= 0)
   osx (>= 0)
@@ -80,4 +104,7 @@ DEPENDENCIES
   sprout-osx-base (>= 0)
   sprout-osx-settings (>= 0)
   sprout-pivotal (>= 0)
+  tm (>= 0)
+  tm-osx-apps (>= 0)
+  tsnow (>= 0)
 

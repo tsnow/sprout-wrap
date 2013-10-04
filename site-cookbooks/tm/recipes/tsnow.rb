@@ -26,7 +26,7 @@ include_recipe "sprout-osx-apps::virtualbox"
 
 # from ruby_development.
 include_recipe "pivotal_workstation::rvm"
-include_recipe "pivotal_workstation::mysql"
+include_recipe "tm::mysql"
 include_recipe "pivotal_workstation::postgres"
 include_recipe "pivotal_workstation::redis"
 include_recipe "pivotal_workstation::memcached"
@@ -60,6 +60,9 @@ include_recipe "sprout-osx-apps::vagrant"
 
 include_recipe "sprout-osx-apps::jq"
 include_recipe "sprout-osx-apps::go"
+include_recipe "tm-osx-apps::emacs"
+include_recipe "tm-osx-apps::postgres_app"
+include_recipe "tm-osx-apps::screenhero"
 
 
 

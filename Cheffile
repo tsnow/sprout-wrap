@@ -26,3 +26,12 @@ cookbook 'sprout-pivotal',
 cookbook 'osx',
   :git => 'git://github.com/pivotal-sprout/sprout.git',
   :path => 'osx'
+
+cookbook 'tm',
+  :path => 'site-cookbooks/tm'
+
+cookbook 'tm-osx-apps',
+  :path => 'site-cookbooks/tm-osx-apps'
+
+cookbook 'tsnow',
+  :path => 'site-cookbooks/tsnow'
