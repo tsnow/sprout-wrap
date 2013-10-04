@@ -1,10 +1,10 @@
 recipes:
 - tm::osx_base
 - tm::osx_development
-- pivotal_workstation::rbenv
-#- pivotal_workstation::rvm
+#- pivotal_workstation::rbenv
+- pivotal_workstation::rvm
 - tm::ruby_development
-#- tm::tsnow
+- tm::tsnow
 - tsnow::dev_dotfiles
 - tsnow::my_dotfiles
 - tsnow::dev_projects
