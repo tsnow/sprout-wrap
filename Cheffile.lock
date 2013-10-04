@@ -38,14 +38,6 @@ GIT
 
 GIT
   remote: git://github.com/pivotal-sprout/sprout.git
-  path: sprout-osx-base
-  ref: master
-  sha: d52e40b827678bf73891bcad59ebba3d786578a4
-  specs:
-    sprout-osx-base (0.1.0)
-
-GIT
-  remote: git://github.com/pivotal-sprout/sprout.git
   path: sprout-osx-settings
   ref: master
   sha: d52e40b827678bf73891bcad59ebba3d786578a4
@@ -71,6 +63,11 @@ PATH
       pivotal_workstation (>= 0.0.0)
       sprout-osx-apps (>= 0.0.0)
       sprout-osx-settings (>= 0.0.0)
+
+PATH
+  remote: site-cookbooks/sprout-osx-base
+  specs:
+    sprout-osx-base (0.1.0)
 
 PATH
   remote: site-cookbooks/tm

@@ -1,7 +1,7 @@
 recipes:
-- tm::osx_base
-- tm::osx_development
-- tm::ruby_development
+#- tm::osx_base
+#- tm::osx_development
+#- tm::ruby_development
 - tm::tsnow
 - tsnow::dev_dotfiles
 - tsnow::my_dotfiles
@@ -10,3 +10,4 @@ node_attributes:
   dev_projects:
         directory: dev
         github_organization: ridecharge
+  mysql_root_password: ""

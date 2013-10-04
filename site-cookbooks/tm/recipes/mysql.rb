@@ -13,7 +13,12 @@ def MYSQL_COMMAND.mysql
   end
 end
 def MYSQL_COMMAND.set_password
-  %{mysqladmin -uroot password "#{PASSWORD}"}
+  case PASSWORD
+  when "", nil then
+    %{mysql -uroot && echo "This only works on the first time"}
+  else
+    %{mysqladmin -uroot password "#{PASSWORD}"}
+  end
 end
 
 # The next two directories will be owned by node['current_user']
@@ -74,12 +79,30 @@ execute "set the root password to the default" do
  command MYSQL_COMMAND.set_password
   not_if "#{MYSQL_COMMAND.mysql} -e 'show databases'"
 end
+=begin #not sure why this is breaking
+I get:
+Mixlib::ShellOut::ShellCommandFailed
+------------------------------------
+Expected process to exit with [0], but received '1'
+---- Begin output of mysql_tzinfo_to_sql /usr/share/zoneinfo | sed
+ 's/Local time zone must be set--see zic manual page/XXT/' | mysql
+ -uroot -ppassword ----
+STDOUT:
+STDERR: Warning: Using a password on the command line interface can be
+ insecure.
+Warning: Unable to load '/usr/share/zoneinfo/+VERSION' as time
+ zone. Skipping it.
+ERROR 1046 (3D000) at line 1: No database selected
+---- End output of mysql_tzinfo_to_sql /usr/share/zoneinfo | sed
+ 's/Local time zone must be set--see zic manual page/XXT/' | mysql
+ -uroot -ppassword ----
+
 
 execute "insert time zone info" do
   command "mysql_tzinfo_to_sql /usr/share/zoneinfo | sed 's/Local time zone must be set--see zic manual page/XXT/' | #{MYSQL_COMMAND.mysql}"
   not_if "#{MYSQL_COMMAND.mysql} -e 'select * from time_zone_name' | grep -q UTC"
 end
-
+=end
 
 # Homebrew uses --sysconf=#{etc} to point to this file, and mysql ships
 # with sql_mode=X,Y,Z, but our apps, especially the old apps, need

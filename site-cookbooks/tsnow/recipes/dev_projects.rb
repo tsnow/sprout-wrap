@@ -7,6 +7,7 @@
 #   dev_projects:
 #      directory: dev
 #      github_organization: ridecharge
+require 'github_api'
 
 include_recipe "pivotal_workstation::workspace_directory"
 
