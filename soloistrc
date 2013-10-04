@@ -4,9 +4,12 @@ recipes:
 - pivotal_workstation::rbenv
 #- pivotal_workstation::rvm
 - tm::ruby_development
+#- tm::tsnow
+- tsnow::dev_dotfiles
+- tsnow::my_dotfiles
+- tsnow::dev_projects
 node_attributes:
-#  See tsnow::dev_projects, run soloist with GITHUB_USER=x GITHUB_PASS=y
-#  dev_projects:
-#        directory: dev
-#        github_organization: ridecharge
+  dev_projects:
+        directory: dev
+        github_organization: ridecharge
   mysql_root_password: ""
