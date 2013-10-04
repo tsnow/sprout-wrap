@@ -18,10 +18,21 @@ GEM
       rest-client (>= 1.0.4, < 1.7.0)
       yajl-ruby (~> 1.1)
     erubis (2.7.0)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
+    github_api (0.9.7)
+      faraday (~> 0.8.1)
+      hashie (>= 1.2)
+      multi_json (~> 1.4)
+      nokogiri (~> 1.5.2)
+      oauth2
     hashie (1.2.0)
     highline (1.6.16)
+    httpauth (0.2.0)
     ipaddress (0.8.0)
     json (1.7.7)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     librarian (0.1.0)
       highline
       thor (~> 0.15)
@@ -36,12 +47,23 @@ GEM
     mixlib-config (1.1.2)
     mixlib-log (1.6.0)
     mixlib-shellout (1.1.0)
+    multi_json (1.8.0)
+    multi_xml (0.5.5)
+    multipart-post (1.2.0)
     net-ssh (2.6.6)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     net-ssh-multi (1.1)
       net-ssh (>= 2.1.4)
       net-ssh-gateway (>= 0.99.0)
+    nokogiri (1.5.10)
+    oauth2 (0.9.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
     ohai (6.16.0)
       ipaddress
       mixlib-cli
@@ -51,6 +73,7 @@ GEM
       systemu
       yajl-ruby
     plist (3.1.0)
+    rack (1.5.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     soloist (1.0.1)
@@ -68,5 +91,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  github_api
   plist
   soloist
