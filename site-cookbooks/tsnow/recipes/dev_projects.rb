@@ -53,13 +53,14 @@ repos.each do |repo|
 
   [
    "git remote add origin #{repo_address}",
-   "git branch --set-upstream master origin/master",
+#   "git fetch origin",
+#   "git branch --set-upstream master origin/master",
   ].each do |git_cmd|
     execute "#{repo_name} - #{git_cmd}" do
       command git_cmd
-      cwd "#{node['sprout']['home']}/#{repo_dir}/#{repo_name}"
+      cwd checkout_dir
       user node['current_user']
-      only_if { `git remote`.empty? }
+      only_if { `cd #{checkout_dir}; git remote`.empty? }
     end
   end
 end

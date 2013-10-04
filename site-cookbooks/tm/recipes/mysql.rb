@@ -104,13 +104,17 @@ execute "insert time zone info" do
 end
 =end
 
+my_dot_cnf = `find /usr/local/Cellar/mysql -name 'my.cnf'`.chomp
+
 # Homebrew uses --sysconf=#{etc} to point to this file, and mysql ships
 # with sql_mode=X,Y,Z, but our apps, especially the old apps, need
 # sql_mode="". So fuck that file.
-file "/usr/local/Cellar/mysql/*/my.cnf" do
-  owner ENV['USER']
+unless my_dot_cnf == ""
+file my_dot_cnf do
+  owner node['current_user']
   group "wheel"
   mode "0644"
   action :create
   content ""
+end
 end

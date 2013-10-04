@@ -45,8 +45,8 @@ include_recipe "pivotal_workstation::timemachine_preferences"
 
 # tsnow specific
 include_recipe "sprout-osx-apps::alfred"
-include_recipe 'sprout-osx-apps::charles_proxy'
-include_recipe 'sprout-osx-apps::evernote'
+#include_recipe 'sprout-osx-apps::charles_proxy' #file doesn't exist
+#include_recipe 'sprout-osx-apps::evernote' #weird error
 
 #include_recipe "sprout-osx-apps::skitch"
 include_recipe "sprout-osx-apps::heroku_toolbelt"
@@ -67,7 +67,7 @@ include_recipe "sprout-osx-apps::jq"
 include_recipe "sprout-osx-apps::go"
 include_recipe "tm-osx-apps::emacs"
 include_recipe "tm-osx-apps::postgres_app"
-include_recipe "tm-osx-apps::screenhero"
+#include_recipe "tm-osx-apps::screenhero"
 
 
 
