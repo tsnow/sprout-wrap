@@ -11,7 +11,7 @@ include_recipe "sprout-osx-settings::defaults_fast_key_repeat_rate"
 # from osx_development
 #include_recipe "pivotal_workstation::git_config_global_defaults"
 include_recipe "pivotal_workstation::gitx"
-include_recipe "pivotal_workstation::github_for_mac"
+#include_recipe "pivotal_workstation::github_for_mac"
 include_recipe "sprout-osx-apps::iterm2"
 include_recipe "sprout-osx-base::homebrew"
 #include_recipe "pivotal_workstation::textmate"

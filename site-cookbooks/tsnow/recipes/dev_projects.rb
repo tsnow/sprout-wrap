@@ -11,28 +11,25 @@ require 'github_api'
 
 include_recipe "pivotal_workstation::workspace_directory"
 
-def gh_env
-  gh_user = ENV['GITHUB_USER']
-  gh_pass = ENV['GITHUB_PASS']
-  {:basic_auth => "#{gh_user}:#{gh_pass}", :user => gh_user} if gh_user && gh_pass
-end
 def gh_gitconfig
   gh_token = `git config --global github.token`.chomp
   gh_user = `git config --global github.user`.chomp
-  {:oauth_token => gh_token, :user => gh_user} if !gh_token.empty? && !gh_user.empty?
+  return {:oauth_token => gh_token, :user => gh_user} if !gh_token.empty? && !gh_user.empty?
+  raise "Please go to https://github.com/settings/tokens/new and create a token
+then run git config --global github.token 'that token' && git config --global github.user 'your username'"
 end
 
 
-github = ::Github.new (gh_gitconfig || gh_env)
+github = ::Github.new(gh_gitconfig)
 
 repos = github.repos.all({
-                           :org => node['dev_projects']['github_organization'], 
+                           :org => node['dev_projects']['github_organization'],
                            :auto_pagination => true
                          })
 repos.each do |repo|
   repo_name = repo.name
   repo_address = repo.clone_url
-  
+
   # Allow the user to override the working directory
   repo_dir ||= node['dev_projects']['directory']
 
@@ -64,4 +61,3 @@ repos.each do |repo|
     end
   end
 end
-
